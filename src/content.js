@@ -1,5 +1,5 @@
-
 var long = document.getElementsByClassName("long");
+var nb;
 
 var myVar = setInterval(function(){
   var fade = document.getElementsByClassName("fade");
@@ -15,4 +15,9 @@ var myVar = setInterval(function(){
   info[0].style.display = "none";
   premBot[0].style.display = "none";
 
+  nb = long.length + fade.length + short.length + prem.length + info.length + premBot.length;
+  chrome.runtime.sendMessage({
+    method:'setTitle',
+    title:nb
+  });
 }, 5000);
